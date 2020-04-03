@@ -19,6 +19,7 @@ const APOLLO_QUERY = gql`
 
 const PostPage = () => {
   return (
+    //outer div
     <div>
       <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
@@ -26,9 +27,11 @@ const PostPage = () => {
           if (error) return <p>{error.message}</p>
 
           return (
+            //inner div
             <div>
               {/* simple map higher order function that will render all of our games */}
               {data.posts.map(el => (
+                //container div
                 <div
                   className="container"
                   style={{
@@ -44,22 +47,14 @@ const PostPage = () => {
                     color: "#757575",
                   }}
                 >
+                  
                   <div>
-                    <div
-                      className="title"
-                      
-                    >
-                      <span
-                     
-                      >{el.title}</span>
-                      {el.date}
-                    
+                    <div className="title">
+                      <span>{el.title}</span>
+                      <span style={{fontSize:"18px",marginLeft:"900px"}}>{el.date}</span>
                     </div>
-                    
-                     
-                    
                   </div>
-                  <div>{el.body}</div>
+                  <div style={{marginLeft:"150px",marginRight:"150px"}}>{el.body}</div>
                 </div>
               ))}
             </div>
