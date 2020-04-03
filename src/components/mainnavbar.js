@@ -6,7 +6,7 @@ const mainnavbar = () => (
     <div className="navbar-brand">
       <a className="navbar-item" href="https://bulma.io"> </a> 
       
-           <img src="https://www.pngrepo.com/png/3011/170/apple.png" width="28" height="28" />
+           <img src="https://image.shutterstock.com/image-vector/vector-hand-painted-watercolor-blog-600w-339532466.jpg" width="100px" height="100px" />
       {/* img tags in react need to be self closing with /> at the end! */}
                    
       <div style={{ height: 50}}>
@@ -26,23 +26,25 @@ const mainnavbar = () => (
     </div>
 
     <div className="navbar-menu" id="navMenu">
-      <div className="navbar-start">
-        <a className="navbar-item">
-          <a>
+      <div className="navbar-start" >
+        
+        <a className="navbar-item" style={{color:"purple"}} >
+          
             Home
-          </a>
+        
           
         </a>
-        <a className="navbar-item">
-          <a>
+        
+        <a className="navbar-item" style={{color:"purple"}}>
+          
             About flowers.
-          </a>
+        
           
         </a>
-        <a className="navbar-item">
-          <a>
+        <a className="navbar-item" style={{color:"purple"}}>
+          
             About fruits.
-          </a>
+          
           
         </a>
 
