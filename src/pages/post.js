@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import { useMutation } from "@apollo/react-hooks"
 import "bulma/css/bulma.css"
 import Layout from "../components/layout"
+import MainNavBar from "../components/mainnavbar"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
 
@@ -18,9 +19,12 @@ const APOLLO_QUERY = gql`
 `
 
 const PostPage = () => {
+  
   return (
+    
     //outer div
     <div>
+      <MainNavBar/>
       <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
