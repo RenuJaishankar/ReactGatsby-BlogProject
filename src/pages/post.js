@@ -27,26 +27,26 @@ const PostPage = () => {
         <div className="columns">
           <div className="column">
             <img
-              src="https://www.thespruce.com/thmb/BRLLA0s3hjuaY4VDXWoja69OxK8=/3865x2174/smart/filters:no_upscale()/trio-of-vibrant-red-hibiscus-flowers-with-bright-yellow-stigma-growing-in-garden-pot-845218812-5abea591119fa80037eef63e.jpg"
-              height="1000px"
+              src="https://images.all-free-download.com/images/graphicthumb/tulip_garden_stock_photo_166692.jpg"
+              height="400px"
               width="400px"
             />
           </div>
           <div className="column">
             <img
-              src="https://i.pinimg.com/originals/77/b0/c1/77b0c1a8b5e8c23cf3deafe9d7f20e6c.jpg"
-              height="200px"
+              src="https://images.pexels.com/photos/39517/rose-flower-blossom-bloom-39517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              height="300px"
               width="400px"
             />
           </div>
         </div>
         <div className="columns">
           <div className="column">
-            <img src="https://previews.123rf.com/images/ivantagan/ivantagan1602/ivantagan160200074/52552706-coconut-tree-with-fruits-coconuts-on-a-tropical-island-in-the-maldives-middle-part-of-the-indian-oce.jpg" height="400px" width= "400px"/>
-              
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGJNHoK3OEh8kbO5v1NgUzvZQw3mS-4Lp2yyV5oc2b4aIGXunn&usqp=CAU" height ="400px" width ="400px" />
+                 
           </div>
           <div className="column">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSExJYv2unJUKhXRBepOKbYobEOvLJJVf_lbsw9mlHFmZK8eiPG&usqp=CAU" height ="400px" width ="400px" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSaVh0J4EI_HFuNaYzyI0JBAAdf59ngc6GiAx-3en7I6u5wyPF0&usqp=CAU" height="400px" width= "400px"/>
           </div>
         </div>    
             
