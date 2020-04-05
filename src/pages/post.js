@@ -69,7 +69,7 @@ const PostPage = () => {
                   style={{
                     backgroundColor: "#fafafa",
                     fontFamily: "proxima-nova",
-                
+                    maxwidth:1000,
                     fontWeight: 400,
                     fontStyle: "normal",
                     fontSize: "15px",
@@ -79,20 +79,27 @@ const PostPage = () => {
                     color: "#757575",
                   }}
                 >
-                  <div>
-                    <div className="title">
-                      <span style={{marginLeft:300, color: "#3b4b7f" }}>{el.title}</span>
-                      <span
-                        style={{
-                          fontSize: "18px",
-                          float:"right",
-                          color: "#3b4b7f",
-                        }}
-                      >
+                 
+  
+                  <section className="hero ">
+                    <div className="hero-body">
+                    <div className="container has-text-centered">
+                     
+                      
+                    <h1 className=" title " style={{color : "#3b4b7f"}} >
+                      
+                       {el.title}
+                       
+                    </h1>
+                    
+                    <h2 className="title" style={{color : "#3b4b7f"}} > 
                         {el.date}
-                      </span>
-                    </div>
-                  </div>
+                    </h2>
+                     
+                      </div>
+                      </div>
+                    </section>
+                  
                   
                   <div style={{ marginLeft: "150px", marginRight: "150px" }}>
                     {el.body}
