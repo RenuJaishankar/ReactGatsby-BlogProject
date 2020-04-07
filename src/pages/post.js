@@ -17,8 +17,40 @@ const APOLLO_QUERY = gql`
     }
   }
 `
-
+const ADD_POST = gql`
+mutation($title;String,$body:String){
+createPost(title:$title,body:$body){
+     title,
+     date,
+     body
+}
+}
+`
 const PostPage = () => {
+  const[modal,setModal] = useState[false]
+  const[addPost,{ data }] = useMutation(ADD_POST)
+  const[title,setTitle] = useState("")
+  const[body,setBody] = useState("")
+
+const bodyHandler = event => {
+  setBody(event.target.value)
+}
+
+const titleHandler = event => {
+  setTitle(event.target.value)
+}
+
+const handleClick = () => {
+  setModal(modal)
+}
+
+const handleform = () => {
+  let t = title
+  let b = body
+  addPost({variables:{title:t,body:b}})
+  handleClick()
+  window.location.reload();
+}
   return (
     //outer div
     <div>
