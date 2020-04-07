@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { graphql } from "gatsby"
+import ReactModal from "react-modal"
 import { useMutation } from "@apollo/react-hooks"
 import "bulma/css/bulma.css"
 import Layout from "../components/layout"
@@ -18,7 +19,7 @@ const APOLLO_QUERY = gql`
   }
 `
 const ADD_POST = gql`
-mutation($title;String,$body:String){
+mutation($title:String,$body:String){
 createPost(title:$title,body:$body){
      title,
      date,
@@ -27,34 +28,70 @@ createPost(title:$title,body:$body){
 }
 `
 const PostPage = () => {
-  const[modal,setModal] = useState[false]
-  const[addPost,{ data }] = useMutation(ADD_POST)
-  const[title,setTitle] = useState("")
-  const[body,setBody] = useState("")
+  const [modal, setModal] = useState(false)
+  const [addPost, { data }] = useMutation(ADD_POST)
+  const [title, setTitle] = useState("")
+  const [body, setBody] = useState("")
 
-const bodyHandler = event => {
-  setBody(event.target.value)
-}
+  const bodyHandler = event => {
+    setBody(event.target.value)
+  }
 
-const titleHandler = event => {
-  setTitle(event.target.value)
-}
+  const titleHandler = event => {
+    setTitle(event.target.value)
+  }
 
-const handleClick = () => {
-  setModal(modal)
-}
+  const handleClick = () => {
+    setModal(!modal)
+  }
 
-const handleform = () => {
-  let t = title
-  let b = body
-  addPost({variables:{title:t,body:b}})
-  handleClick()
-  window.location.reload();
-}
+  const handleForm = () => {
+    let t = title
+    let b = body
+    addPost({ variables: { title: t, body: b } })
+    handleClick()
+    window.location.reload()
+  }
   return (
-    //outer div
     <div>
-      <MainNavBar />
+    <ReactModal isOpen = {modal}>
+      <div className="container-fluid" style={{margin:"auto"}}>
+      <form >   
+      
+      <div className="field">
+         <label className="title">Title</label>
+         < div className="control">
+           <input  className="title" type="text" placeholder="Title" onChange={{titleHandler}} />
+       </div>
+      </div>
+      
+       
+      <div className="field">
+         <label className="body">Body</label>
+         < div className="control">
+           <input className="body" type="text" placeholder="Body" onChange={{bodyHandler}} />
+       </div>
+      </div>
+      <div className="field is-grouped">
+  <p className="control">
+    <button className="button is-primary" onSubmit={{handleForm}} >
+      Submit
+    </button>
+  </p>
+  <p className="control">
+    <button className="button is-light " onClick={handleClick}>
+      Cancel
+    </button>
+  </p>
+</div>
+   
+    </form> 
+    </div>
+   </ReactModal>
+    
+    
+       <MainNavBar /> 
+       <button className="button" onClick={handleClick}>Click to display modal.</button>
       <div class="container">
         <div className="columns">
           <div className="column">
@@ -74,16 +111,20 @@ const handleform = () => {
         </div>
         <div className="columns">
           <div className="column">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGJNHoK3OEh8kbO5v1NgUzvZQw3mS-4Lp2yyV5oc2b4aIGXunn&usqp=CAU" height ="400px" width ="400px" />
-                 
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGJNHoK3OEh8kbO5v1NgUzvZQw3mS-4Lp2yyV5oc2b4aIGXunn&usqp=CAU"
+              height="400px"
+              width="400px"
+            />
           </div>
           <div className="column">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSaVh0J4EI_HFuNaYzyI0JBAAdf59ngc6GiAx-3en7I6u5wyPF0&usqp=CAU" height="400px" width= "400px"/>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSaVh0J4EI_HFuNaYzyI0JBAAdf59ngc6GiAx-3en7I6u5wyPF0&usqp=CAU"
+              height="400px"
+              width="400px"
+            />
           </div>
-        </div>    
-            
-         
-        
+        </div>
       </div>
       <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
@@ -101,7 +142,7 @@ const handleform = () => {
                   style={{
                     backgroundColor: "#fafafa",
                     fontFamily: "proxima-nova",
-                    maxwidth:1000,
+                    maxwidth: 1000,
                     fontWeight: 400,
                     fontStyle: "normal",
                     fontSize: "15px",
@@ -111,28 +152,20 @@ const handleform = () => {
                     color: "#757575",
                   }}
                 >
-                 
-  
                   <section className="hero ">
                     <div className="hero-body">
-                    <div className="container has-text-centered">
-                     
-                      
-                    <h1 className=" title " style={{color : "#3b4b7f"}} >
-                      
-                       {el.title}
-                       
-                    </h1>
-                    
-                    <h2 className="title" style={{color : "#3b4b7f"}} > 
-                        {el.date}
-                    </h2>
-                     
+                      <div className="container has-text-centered">
+                        <h1 className=" title " style={{ color: "#3b4b7f" }}>
+                          {el.title}
+                        </h1>
+
+                        <h2 className="title" style={{ color: "#3b4b7f" }}>
+                          {el.date}
+                        </h2>
                       </div>
-                      </div>
-                    </section>
-                  
-                  
+                    </div>
+                  </section>
+
                   <div style={{ marginLeft: "150px", marginRight: "150px" }}>
                     {el.body}
                   </div>
