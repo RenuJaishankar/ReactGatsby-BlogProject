@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import ReactModal from "react-modal"
 import { useMutation } from "@apollo/react-hooks"
 import "bulma/css/bulma.css"
+import Postimage from "../images/postimage"
 import Layout from "../components/layout"
 import MainNavBar from "../components/mainnavbar"
 import { Query } from "react-apollo"
@@ -54,78 +55,47 @@ const PostPage = () => {
   }
   return (
     <div>
-    <ReactModal isOpen = {modal}>
+         <ReactModal isOpen = {modal}>
       <div className="container-fluid" style={{margin:"auto"}}>
       <form >   
       
       <div className="field">
-         <label className="title">Title</label>
+         <label className="label">Title</label>
          < div className="control">
-           <input  className="title" type="text" placeholder="Title" onChange={{titleHandler}} />
+           <input  className="input" type="text" placeholder="Title"  onChange={titleHandler} />
        </div>
       </div>
       
        
       <div className="field">
-         <label className="body">Body</label>
+         <label className="label">Body</label>
          < div className="control">
-           <input className="body" type="text" placeholder="Body" onChange={{bodyHandler}} />
-       </div>
+           <input className="input" type="text" placeholder="Body"  onChange={bodyHandler} />
+          </div>
       </div>
       <div className="field is-grouped">
-  <p className="control">
-    <button className="button is-primary" onSubmit={{handleForm}} >
-      Submit
-    </button>
-  </p>
-  <p className="control">
-    <button className="button is-light " onClick={handleClick}>
-      Cancel
-    </button>
-  </p>
-</div>
+          <div className="control">
+         <button className="button is-primary" onSubmit={handleForm}>
+            Submit
+          </button>  
+          </div>
+        
+         <div className="control">
+         <button className="button is-light " onClick={handleClick}>
+          Cancel
+         </button>
+         </div>
+     </div>
    
     </form> 
     </div>
    </ReactModal>
     
-    
+      
        <MainNavBar /> 
+       <Postimage/>
        <button className="button" onClick={handleClick}>Click to display modal.</button>
-      <div class="container">
-        <div className="columns">
-          <div className="column">
-            <img
-              src="https://images.all-free-download.com/images/graphicthumb/tulip_garden_stock_photo_166692.jpg"
-              height="400px"
-              width="400px"
-            />
-          </div>
-          <div className="column">
-            <img
-              src="https://images.pexels.com/photos/39517/rose-flower-blossom-bloom-39517.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-              height="300px"
-              width="400px"
-            />
-          </div>
-        </div>
-        <div className="columns">
-          <div className="column">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGJNHoK3OEh8kbO5v1NgUzvZQw3mS-4Lp2yyV5oc2b4aIGXunn&usqp=CAU"
-              height="400px"
-              width="400px"
-            />
-          </div>
-          <div className="column">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSaVh0J4EI_HFuNaYzyI0JBAAdf59ngc6GiAx-3en7I6u5wyPF0&usqp=CAU"
-              height="400px"
-              width="400px"
-            />
-          </div>
-        </div>
-      </div>
+       
       <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
