@@ -35,13 +35,13 @@ const mainnavbar = () => (
           
         </a>
         
-        <a className="navbar-item" style={{color:"purple"}}>
+        <a className="navbar-item" style={{color:"purple"}} href="../flowerpage">
           
             About flowers.
         
           
         </a>
-        <a className="navbar-item" style={{color:"purple"}}>
+        <a className="navbar-item" style={{color:"purple"}} href="../fruitpage">
           
             About fruits.
           
