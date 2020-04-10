@@ -108,9 +108,18 @@ const FruitPage = () => {
                {Array.from (
                   data.fruitposts.map(el => (
                     <div className="container">
-                      <div>{el.date} </div>
-                      <div>{el.title} </div>
-                      <div>{el.body} </div>
+                     <section className="hero">
+                       <div className="hero-body">
+                        <div className="container has-text-centered">
+                           <h1 className=" title " style={{ color: "#3b4b7f" }}>
+
+                           {el.date} </h1>
+                           <h2 className="title" style={{ color: "#3b4b7f" }}>{el.title} </h2>
+                           
+                        </div> 
+                        </div>
+                     </section>   
+                        {el.body}   
                     </div>
                   ))
                 )
