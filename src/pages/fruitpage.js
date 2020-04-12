@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import ReactModal from "react-modal"
 import { useMutation } from "@apollo/react-hooks"
+import MainNavBar from "../components/mainnavbar"
 import Layout from "../components/layout"
 import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
@@ -54,6 +55,7 @@ const FruitPage = () => {
 
   return (
     <div>
+      <MainNavBar />
       {/* This button is given for showing the form */}
       <button className="button" onClick={handleClick}>
         click to display modal{" "}

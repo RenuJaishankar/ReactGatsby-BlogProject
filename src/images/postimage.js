@@ -2,7 +2,7 @@ import React from 'react'
 import "bulma/css/bulma.css"
 const postimage = () =>{
     return(
-<div class="container">
+<div className="container">
         <div className="columns">
           <div className="column">
             <img

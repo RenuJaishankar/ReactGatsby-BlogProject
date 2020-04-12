@@ -11,7 +11,7 @@ import gql from "graphql-tag"
 
 const APOLLO_QUERY = gql`
   {
-    flowerposts {
+    placeposts {
       imageUrl
       date
       title
@@ -19,18 +19,18 @@ const APOLLO_QUERY = gql`
     }
   }
 `
-const ADD_FLOWER_POST = gql`
+const ADD_PLACE_POST = gql`
   mutation($imageUrl: String, $title: String, $body: String) {
-    createFlowerPost(imageUrl: $imageUrl, title: $title, body: $body) {
+    createPlacePost(imageUrl: $imageUrl, title: $title, body: $body) {
       imageUrl
       title
       body
     }
   }
 `
-const FlowerPage = () => {
+const PlacesPage = () => {
   const [modal, setModal] = useState(false)
-  const [addFlowerPost, { data }] = useMutation(ADD_FLOWER_POST)
+  const [addPlacePost, { data }] = useMutation(ADD_PLACE_POST)
   const [imageUrl, setImageUrl] = useState("")
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
@@ -55,7 +55,7 @@ const FlowerPage = () => {
     let i = imageUrl
     let t = title
     let b = body
-    addFlowerPost({ variables: { imageUrl: i, title: t, body: b } })
+    addPlacePost({ variables: { imageUrl: i, title: t, body: b } })
     handleClick()
     window.location.reload()
   }
@@ -126,7 +126,7 @@ const FlowerPage = () => {
             <div>
               <h2>Hello</h2>
               {Array.from(
-                data.flowerposts.map(el => (
+                data.placeposts.map(el => (
                   <div
                     className="container"
                     style={{
@@ -175,4 +175,4 @@ const FlowerPage = () => {
 }
 // curly braces for flowerpage
 
-export default FlowerPage
+export default PlacesPage

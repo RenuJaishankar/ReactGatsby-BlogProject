@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import ReactModal from "react-modal"
 import { useMutation } from "@apollo/react-hooks"
 import "bulma/css/bulma.css"
-import Postimage from "../images/postimage"
+import Blogimage from "../images/blogimage"
 import Layout from "../components/layout"
 import MainNavBar from "../components/mainnavbar"
 import { Query } from "react-apollo"
@@ -20,13 +20,13 @@ const APOLLO_QUERY = gql`
   }
 `
 const ADD_POST = gql`
-mutation($title:String,$body:String){
-createPost(title:$title,body:$body){
-     title,
-     date,
-     body
-}
-}
+  mutation($title: String, $body: String) {
+    createPost(title: $title, body: $body) {
+      title
+      date
+      body
+    }
+  }
 `
 const PostPage = () => {
   const [modal, setModal] = useState(false)
@@ -55,98 +55,126 @@ const PostPage = () => {
   }
   return (
     <div>
+      <section className = "hero">
       <MainNavBar />
-      <Postimage />
-      <button className="button" onClick={handleClick}>Click to display modal.</button>
+      <Blogimage />
+      <div className="hero-body">
+      <div className="container">
+      
+         <p
+          style={{
+            
+            textAlign: "center",
+            color: "#3b4b7f",
+            fontFamily: "Pacifico, cursive",
+            fontSize: "30px",
+            
+            fontWeight: "bold",
+
+          }}
+        >
+         <h4> This is my blog.</h4>
+          <h4> I have a great passion for programming.</h4>
+          <h4>Gardening,photography and music are my hobbies.</h4>
+        </p>
+      </div>
+      </div>
+      </section>
+      <button className="button" onClick={handleClick}>
+        Click to display modal.
+      </button>
       <ReactModal isOpen={modal}>
         <form onSubmit={handleForm}>
           <div className="container">
-
             <div className="field">
               <label className="label">Title</label>
-              < div className="control">
-                <input className="input" type="text" placeholder="Title" onChange={titleHandler} />
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Title"
+                  onChange={titleHandler}
+                />
               </div>
             </div>
 
-
             <div className="field">
               <label className="label">Body</label>
-              < div className="control">
-                <input className="input" type="text" placeholder="Body" onChange={bodyHandler} />
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Body"
+                  onChange={bodyHandler}
+                />
               </div>
             </div>
             <div className="field is-grouped">
               <div className="control">
-                <button className="button is-primary" >
-                  Submit
-                  </button>
+                <button className="button is-primary">Submit</button>
               </div>
 
               <div className="control">
                 <button className="button is-light " onClick={handleClick}>
                   Cancel
-                 </button>
+                </button>
               </div>
             </div>
           </div>
         </form>
-
       </ReactModal>
-    
+
       <Query query={APOLLO_QUERY}>
-      {({ data, loading, error }) => {
-        if (loading) return <span>Loading...</span>
-        if (error) return <p>{error.message}</p>
-        return (
-          //inner div
-          <div>
-            
-            {Array.from(data.posts.map(el => (
-              //container div
-              <div  className="container"
-              style={{
-                backgroundColor: "#fafafa",
-                fontFamily: "proxima-nova",
-                maxwidth: 1000,
-                fontWeight: 400,
-                fontStyle: "normal",
-                fontSize: "15px",
-                letterSpacing: ".02em",
-                lineHeight: "2em",
-                textTransform: "none",
-                color: "#757575",
-              }}>
+        {({ data, loading, error }) => {
+          if (loading) return <span>Loading...</span>
+          if (error) return <p>{error.message}</p>
+          return (
+            //inner div
+            <div>
+              {Array.from(
+                data.posts.map(el => (
+                  //container div
+                  <div
+                    className="container"
+                    style={{
+                      backgroundColor: "#fafafa",
+                      fontFamily: "proxima-nova",
+                      maxwidth: 1000,
+                      fontWeight: 400,
+                      fontStyle: "normal",
+                      fontSize: "15px",
+                      letterSpacing: ".02em",
+                      lineHeight: "2em",
+                      textTransform: "none",
+                      color: "#757575",
+                    }}
+                  >
+                    <section >
+                      <div >
+                        <div className="container has-text-centered">
+                          <h1 className=" title " style={{ color: "#3b4b7f" }}>
+                            {el.title}
+                          </h1>
 
-                                   
-                <section className="hero ">
-                  
-                  
-                  <div className="hero-body">
-                    <div className="container has-text-centered">
-                      <h1 className=" title " style={{ color: "#3b4b7f" }}>
-                        {el.title}
-                      </h1>
+                          <h2 className="title" style={{ color: "#3b4b7f" }}>
+                            {el.date}
+                          </h2>
+                        </div>
+                      </div>
+                    </section>
 
-                      <h2 className="title" style={{ color: "#3b4b7f" }}>
-                        {el.date}
-                      </h2>
+                    <div style={{ marginLeft: "150px", marginRight: "150px" }}>
+                      {el.body}
                     </div>
                   </div>
-                </section>
-
-                <div style={{ marginLeft: "150px", marginRight: "150px" }}>
-                  {el.body}
-                </div>
-              </div>
-            ))).reverse()}
-          </div>
-        )
-      }}
-    </Query>
+                ))
+              ).reverse()}
+            </div>
+          )
+        }}
+      </Query>
     </div>
   )
-    
 }
 
 export default PostPage
