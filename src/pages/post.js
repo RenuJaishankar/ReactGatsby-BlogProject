@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import ReactModal from "react-modal"
 import { useMutation } from "@apollo/react-hooks"
 import "bulma/css/bulma.css"
-import Blogimage from "../images/blogimage"
+import BlogImage from "../images/blogimage"
 import Layout from "../components/layout"
 import MainNavBar from "../components/mainnavbar"
 import { Query } from "react-apollo"
@@ -53,36 +53,43 @@ const PostPage = () => {
     handleClick()
     window.location.reload()
   }
+  let stylefonts = {
+    fontFamily:"Pacifico , cursive"
+  }
   return (
     <div>
       <section className = "hero">
       <MainNavBar />
-      <Blogimage />
+      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px"}}onClick={handleClick}>
+             CLICK TO ENTER NEW POST
+         </button>
+         <br></br>
+      <BlogImage />
       <div className="hero-body">
-      <div className="container">
-      
-         <p
+      <div className="container"
+             
           style={{
             
             textAlign: "center",
             color: "#3b4b7f",
-            fontFamily: "Pacifico, cursive",
+            fontFamily: "Pacifico,cursive",
             fontSize: "30px",
             
             fontWeight: "bold",
 
           }}
         >
-         <h4> This is my blog.</h4>
-          <h4> I have a great passion for programming.</h4>
-          <h4>Gardening,photography and music are my hobbies.</h4>
-        </p>
+         
+         <h4 style={stylefonts}> This is my blog.</h4>
+          <h4 style={stylefonts}> I have a great passion for programming.</h4>
+          <h4 style={stylefonts}>Gardening,photography and music are my hobbies.</h4>
+      
       </div>
       </div>
       </section>
-      <button className="button" onClick={handleClick}>
+      {/* <button className="button" onClick={handleClick}>
         Click to display modal.
-      </button>
+      </button> */}
       <ReactModal isOpen={modal}>
         <form onSubmit={handleForm}>
           <div className="container">

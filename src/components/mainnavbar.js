@@ -9,10 +9,10 @@ const mainnavbar = () => (
            <img src="https://image.shutterstock.com/image-vector/vector-hand-painted-watercolor-blog-600w-339532466.jpg"width="100px" height="100px" />
       {/* img tags in react need to be self closing with /> at the end! */}
                   
-      <div style={{ height: 50}}>
-      <a className="navbar-item" style={{fontSize:30,fontWeight:"bold",fontFamily:"Verdana"}}>
+      <div style={{ height: 50,margin:"auto"}}>
+      <a className="navbar-item" style={{fontSize:30,fontWeight:"bold",fontFamily:"Pacifico,cursive",color:"#2B65EC"}}>
        
-        Super Cool My Blog.
+        Super Cool My Blog
                </a>
        </div>         
 
@@ -29,43 +29,47 @@ const mainnavbar = () => (
       <div className="navbar-start" >
         
         <a className="navbar-item" style={{
+            margin:"auto",
             color: "#3b4b7f",
-            fontFamily: "Lobster",
+            fontFamily: "Arial",
+            navbarBoxShadowColor:"#93FFE8",
             fontSize: "25px",
             fontWeight: "bold"}} href="../post" >
           
             Home
-        
-          
+                      
         </a>
         <a className="navbar-item" style={{
+            margin:"auto",
             color: "#3b4b7f",
-            fontFamily: "Lobster",
+            fontFamily: "Arial",
             fontSize: "25px",
             fontWeight: "bold"}} href="../placespage" >
           
-            places
+            Places
         
           
         </a>
         
         <a className="navbar-item" style={{textAlign: "center",
+            margin:"auto",
             color: "#3b4b7f",
-            fontFamily: "Lobster",
+            fontFamily: "Arial",
             fontSize: "25px",
             fontWeight: "bold"}} href="../flowerpage">
           
-            About flowers.
+            Flowers
         
           
         </a>
         <a className="navbar-item" style={{textAlign: "center",
+            margin:"auto",
             color: "#3b4b7f",
-            fontFamily: "Lobster",
+            fontFamily: "Arial",
             fontSize: "25px",
             fontWeight: "bold",}} href="../fruitpage">
           
-            About fruits.
+            Fruits
           
           
         </a>

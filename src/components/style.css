@@ -1,0 +1,11 @@
+.centered{
+    position:absolute;
+    color:blue;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background-image: url("../images/blogmain.jpg");
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
