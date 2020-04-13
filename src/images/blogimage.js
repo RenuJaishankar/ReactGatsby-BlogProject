@@ -23,7 +23,7 @@ const BlogImage = () => {
         // width:"400px"
         width: "100% ",/* Full width */
         padding: "20px",
-        color:"#2A0800"
+        color:"white"
     }
     let imagestyles = {
        height: "600px",
@@ -31,7 +31,7 @@ const BlogImage = () => {
     }
     return (
         <div className="container" >
-           <img src="https://cdn.pixabay.com/photo/2019/01/17/23/14/work-3938875_960_720.jpg"
+           <img src="https://cdn.pixabay.com/photo/2019/04/06/20/02/background-4108198__340.jpg"
                     style={imagestyles} />
              <div style={styles}> 
                MY BLOG
