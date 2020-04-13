@@ -18,22 +18,23 @@ const BlogImage = () => {
         backgroundSize: "cover",
         boxSizing: "border-box",
         background: "rgb(0, 0, 0)", /* Fallback color */
-  background: "rgba(0, 0, 0, 0.5)",
+  background: "rgba(0, 0, 0, .2)",
         // height:"400px",
         // width:"400px"
         width: "100% ",/* Full width */
-  padding: "20px"
+        padding: "20px",
+        color:"#2A0800"
     }
     let imagestyles = {
-       height: "500px",
-       width: "100%"
+       height: "600px",
+       width: "1000px"
     }
     return (
         <div className="container" >
-           <img src="https://previews.123rf.com/images/tommoh29/tommoh291704/tommoh29170400249/76404670-vintage-style-photo-blog-background-or-template.jpg"
+           <img src="https://cdn.pixabay.com/photo/2019/01/17/23/14/work-3938875_960_720.jpg"
                     style={imagestyles} />
              <div style={styles}> 
-              THIS IS MY BLOG
+               MY BLOG
               </div>  
         </div>
 

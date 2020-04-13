@@ -62,10 +62,11 @@ const PlacesPage = () => {
 
   return (
     <div>
+      <section className="hero">
        <MainNavBar />
       {/* This button is given for showing the form */}
-      <button className="button" onClick={handleClick}>
-        click to display modal{" "}
+      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px",textAlign:"center"}} onClick={handleClick}>
+        click to enter places I like blog{" "}
       </button>
       <ReactModal isOpen={modal}>
         <form onSubmit={handleForm}>
@@ -124,8 +125,7 @@ const PlacesPage = () => {
           if (error) return <p>{error.message}</p>
           return (
             <div>
-              <h2>Hello</h2>
-              {Array.from(
+                          {Array.from(
                 data.placeposts.map(el => (
                   <div
                     className="container"
@@ -169,6 +169,7 @@ const PlacesPage = () => {
           // this curly braces for data,loadin
         }}
       </Query>
+      </section>
     </div>
   )
   // outer paranthesis for main return

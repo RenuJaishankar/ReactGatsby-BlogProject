@@ -62,11 +62,13 @@ const FlowerPage = () => {
 
   return (
     <div>
+      <section className = "hero">
        <MainNavBar />
       {/* This button is given for showing the form */}
-      <button className="button" onClick={handleClick}>
-        click to display modal{" "}
+      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px",textAlign:"center"}} onClick={handleClick}>
+        click to enter new flower post.
       </button>
+      <br></br>
       <ReactModal isOpen={modal}>
         <form onSubmit={handleForm}>
           <div className="container">
@@ -124,7 +126,7 @@ const FlowerPage = () => {
           if (error) return <p>{error.message}</p>
           return (
             <div>
-              <h2>Hello</h2>
+              
               {Array.from(
                 data.flowerposts.map(el => (
                   <div
@@ -169,6 +171,7 @@ const FlowerPage = () => {
           // this curly braces for data,loadin
         }}
       </Query>
+      </section>
     </div>
   )
   // outer paranthesis for main return

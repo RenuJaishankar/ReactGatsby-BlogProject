@@ -12,6 +12,7 @@ import gql from "graphql-tag"
 const APOLLO_QUERY = gql`
   {
     fruitposts {
+      imageUrl
       date
       title
       body
@@ -19,8 +20,9 @@ const APOLLO_QUERY = gql`
   }
 `
 const ADD_FRUIT_POST = gql`
-  mutation($title: String, $body: String) {
-    createFruitPost(title: $title, body: $body) {
+  mutation($imageUrl: String,$title: String, $body: String) {
+    createFruitPost(imageUrl:$imageUrl,title: $title, body: $body) {
+      imageUrl
       title
       date
       body
@@ -30,8 +32,13 @@ const ADD_FRUIT_POST = gql`
 const FruitPage = () => {
   const [modal, setModal] = useState(false)
   const [addFruitPost, { data }] = useMutation(ADD_FRUIT_POST)
+  const [imageUrl, setImageUrl] = useState("")
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
+
+  const ImageUrlHandler = event => {
+    setImageUrl(event.target.value)
+  }
 
   const bodyHandler = event => {
     setBody(event.target.value)
@@ -48,21 +55,33 @@ const FruitPage = () => {
   const handleForm = () => {
     let t = title
     let b = body
-    addFruitPost({ variables: { title: t, body: b } })
+    addFruitPost({ variables: {imageUrl:imageUrl, title: t, body: b } })
     handleClick()
     window.location.reload()
   }
 
   return (
     <div>
+      <section className="hero">
       <MainNavBar />
       {/* This button is given for showing the form */}
-      <button className="button" onClick={handleClick}>
+      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px",textAlign:"center"}} onClick={handleClick}>
         click to display modal{" "}
       </button>
       <ReactModal isOpen={modal}>
       <form onSubmit={handleForm}>
         <div className="container">
+            <div className="field">
+              <label className="label">Image URL</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="ImageURL"
+                  onChange={ImageUrlHandler}
+                />
+              </div>
+            </div>
           <div className="field">
             <label className="label">Title</label>
             <div className="control">
@@ -106,12 +125,15 @@ const FruitPage = () => {
             if (error) return <p>{error.message}</p>
           return (
             <div>
-               <h2>Hello</h2>
+               
                {Array.from (
                   data.fruitposts.map(el => (
                     <div className="container">
                      <section className="hero">
                        <div className="hero-body">
+                       <div className="container">
+                          <img src={el.imageUrl} height="400px" width="400px" />
+                        </div>
                         <div className="container has-text-centered">
                            <h1 className=" title " style={{ color: "#3b4b7f" }}>
 
@@ -132,6 +154,7 @@ const FruitPage = () => {
           // this curly braces for data,loadin
         }}
       </Query>
+      </section>
     </div>
   )
   // outer paranthesis for main return
