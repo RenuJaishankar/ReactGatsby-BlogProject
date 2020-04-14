@@ -145,6 +145,7 @@ const PostPage = () => {
                     className="container"
                     style={{
                       backgroundColor: "#fafafa",
+                      //backgroundColor: "#F4DBD8",
                       fontFamily: "proxima-nova",
                       maxwidth: 1000,
                       fontWeight: 400,
@@ -154,6 +155,8 @@ const PostPage = () => {
                       lineHeight: "2em",
                       textTransform: "none",
                       color: "#757575",
+                       //color :"#775144"
+                       
                     }}
                   >
                     <section >
