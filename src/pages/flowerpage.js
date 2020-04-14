@@ -65,8 +65,8 @@ const FlowerPage = () => {
       <section className = "hero">
        <MainNavBar />
       {/* This button is given for showing the form */}
-      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px",textAlign:"center"}} onClick={handleClick}>
-        click to enter new flower post.
+      <button className="button is-medium" style={{margin:"auto",width:"400px",backgroundColor:"#CF426C",color:"white",textAlign:"center"}} onClick={handleClick}>
+        CLICK TO ENTER FLOWER POST
       </button>
       <br></br>
       <ReactModal isOpen={modal}>

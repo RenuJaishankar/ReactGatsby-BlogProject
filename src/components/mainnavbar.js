@@ -10,7 +10,7 @@ const mainnavbar = () => (
       {/* img tags in react need to be self closing with /> at the end! */}
                   
       <div style={{ height: 50,margin:"auto"}}>
-      <a className="navbar-item" style={{fontSize:30,fontWeight:"bold",fontFamily:"Pacifico,cursive",color:"#2B65EC"}}>
+      <a className="navbar-item" style={{fontSize:30,fontWeight:"bold",fontFamily:"Pacifico,cursive",color:"#AB274F"}}>
        
         Super Cool My Blog
                </a>
@@ -30,7 +30,7 @@ const mainnavbar = () => (
         
         <a className="navbar-item" style={{
             margin:"auto",
-            color: "#3b4b7f",
+            color: "#596372",
             fontFamily: "Arial",
             navbarBoxShadowColor:"#93FFE8",
             fontSize: "25px",
@@ -41,7 +41,7 @@ const mainnavbar = () => (
         </a>
         <a className="navbar-item" style={{
             margin:"auto",
-            color: "#3b4b7f",
+            color: "#596372",
             fontFamily: "Arial",
             fontSize: "25px",
             fontWeight: "bold"}} href="../placespage" >
@@ -53,7 +53,7 @@ const mainnavbar = () => (
         
         <a className="navbar-item" style={{textAlign: "center",
             margin:"auto",
-            color: "#3b4b7f",
+            color: "#596372",
             fontFamily: "Arial",
             fontSize: "25px",
             fontWeight: "bold"}} href="../flowerpage">
@@ -64,7 +64,7 @@ const mainnavbar = () => (
         </a>
         <a className="navbar-item" style={{textAlign: "center",
             margin:"auto",
-            color: "#3b4b7f",
+            color: "#596372",
             fontFamily: "Arial",
             fontSize: "25px",
             fontWeight: "bold",}} href="../fruitpage">

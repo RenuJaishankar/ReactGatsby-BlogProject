@@ -60,7 +60,7 @@ const PostPage = () => {
     <div>
       <section className = "hero">
       <MainNavBar />
-      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px"}}onClick={handleClick}>
+      <button className="button is-medium" style={{margin:"auto",width:"400px",backgroundColor:"#CF426C",color:"white"}}onClick={handleClick}>
              CLICK TO ENTER NEW POST
          </button>
          <br></br>

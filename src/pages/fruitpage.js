@@ -65,8 +65,8 @@ const FruitPage = () => {
       <section className="hero">
       <MainNavBar />
       {/* This button is given for showing the form */}
-      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px",textAlign:"center"}} onClick={handleClick}>
-        click to display modal{" "}
+      <button className="button  is-medium" style={{margin:"auto",width:"400px",backgroundColor:"#CF426C",color:"white",textAlign:"center"}} onClick={handleClick}>
+        CLICK TO ENTER FRUIT POST
       </button>
       <ReactModal isOpen={modal}>
       <form onSubmit={handleForm}>

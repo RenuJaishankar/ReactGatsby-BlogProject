@@ -65,8 +65,8 @@ const PlacesPage = () => {
       <section className="hero">
        <MainNavBar />
       {/* This button is given for showing the form */}
-      <button className="button is-primary is-medium" style={{margin:"auto",width:"400px",textAlign:"center"}} onClick={handleClick}>
-        click to enter places I like blog{" "}
+      <button className="button is-medium" style={{margin:"auto",width:"400px",textAlign:"center",backgroundColor:"#CF426C",color:"white"}} onClick={handleClick}>
+        CLICK TO ENTER PLACES{" "}
       </button>
       <ReactModal isOpen={modal}>
         <form onSubmit={handleForm}>
