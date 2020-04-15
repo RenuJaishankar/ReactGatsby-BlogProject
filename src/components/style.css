@@ -1,11 +1,46 @@
-.centered{
-    position:absolute;
-    color:blue;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    background-image: url("../images/blogmain.jpg");
-    background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+@import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
+
+.line-clamp {
+display:-webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+/* html {
+  white-space: pre-line;
+} */
+
+.title:hover {
+  color:blue;
+  cursor: pointer;
+}
+/* This is the styling for the images in various pages */
+.imgstyle {
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  width: 800px;
+  /* px is very important or else it won't work in css in jsx you don't need */
+}
+
+.imgsmall{
+  margin:auto;
+  height:400px;
+  width:400px;
+}
+
+/* container class styling */
+.display-1 {
+  background-color: "#fafafa";
+
+  font-family: "proxima-nova";
+  max-width: 1000;
+  font-weight: 500;
+  font-style: "normal";
+  font-size: "15px";
+  letter-spacing: ".02em";
+  line-height: "2em";
+  text-transform: "none";
+  color: "#757575";
 }

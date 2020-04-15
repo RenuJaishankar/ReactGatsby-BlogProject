@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
+import "../components/style.css"
 
 const APOLLO_QUERY = gql`
   {
@@ -128,11 +129,11 @@ const FruitPage = () => {
                
                {Array.from (
                   data.fruitposts.map(el => (
-                    <div className="container">
+                    <div className="container display-1">
                      <section className="hero">
                        <div className="hero-body">
                        <div className="container">
-                          <img src={el.imageUrl} height="400px" width="400px" />
+                          <img className="imgstyle"src={el.imageUrl}  />
                         </div>
                         <div className="container has-text-centered">
                            <h1 className=" title " style={{ color: "#3b4b7f" }}>

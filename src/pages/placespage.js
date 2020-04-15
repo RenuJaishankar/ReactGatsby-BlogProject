@@ -7,6 +7,7 @@ import MainNavBar from "../components/mainnavbar"
 import Layout from "../components/layout"
 import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
+import "../components/style.css"
 import gql from "graphql-tag"
 
 const APOLLO_QUERY = gql`
@@ -132,7 +133,7 @@ const PlacesPage = () => {
                     style={{
                       backgroundColor: "#fafafa",
                       fontFamily: "proxima-nova",
-                      maxwidth: 1000,
+                      maxWidth: 1000,
                       fontWeight: 400,
                       fontStyle: "normal",
                       fontSize: "15px",
@@ -145,7 +146,7 @@ const PlacesPage = () => {
                     <section className="hero">
                       <div className="hero-body">
                         <div className="container">
-                          <img src={el.imageUrl} height="400px" width="400px" />
+                          <img className="imgstyle" src={el.imageUrl}  />
                         </div>
                         <div className="container has-text-centered">
                           <h1 className=" title " style={{ color: "#3b4b7f" }}>

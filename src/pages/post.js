@@ -7,12 +7,15 @@ import "bulma/css/bulma.css"
 import BlogImage from "../images/blogimage"
 import Layout from "../components/layout"
 import MainNavBar from "../components/mainnavbar"
+import Modal from "../components/modal"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
-
+import "../components/style.css"
+import  {Format} from "../components/format.js"
 const APOLLO_QUERY = gql`
   {
     posts {
+      imageUrl
       date
       title
       body
@@ -20,116 +23,61 @@ const APOLLO_QUERY = gql`
   }
 `
 const ADD_POST = gql`
-  mutation($title: String, $body: String) {
-    createPost(title: $title, body: $body) {
-      title
-      date
-      body
-    }
+mutation($imageUrl:String, $title: String, $body: String) {
+  createPost(imageUrl: $imageUrl,title: $title, body: $body) {
+    imageUrl
+    title
+    date
+    body
   }
+}
 `
-const PostPage = () => {
+
+const PostPage = (props) => {
   const [modal, setModal] = useState(false)
-  const [addPost, { data }] = useMutation(ADD_POST)
-  const [title, setTitle] = useState("")
-  const [body, setBody] = useState("")
 
-  const bodyHandler = event => {
-    setBody(event.target.value)
-  }
 
-  const titleHandler = event => {
-    setTitle(event.target.value)
-  }
-
-  const handleClick = () => {
-    setModal(!modal)
-  }
-
-  const handleForm = () => {
-    let t = title
-    let b = body
-    addPost({ variables: { title: t, body: b } })
-    handleClick()
-    window.location.reload()
-  }
   let stylefonts = {
-    fontFamily:"Pacifico , cursive"
+    fontFamily: "Pacifico , cursive"
+  }
+  const handleClick = () => {
+
+    setModal(!modal)
+    console.log('this works')
   }
   return (
     <div>
-      <section className = "hero">
-      <MainNavBar />
-      <button className="button is-medium" style={{margin:"auto",width:"400px",backgroundColor:"#CF426C",color:"white"}}onClick={handleClick}>
-             CLICK TO ENTER NEW POST
-         </button>
-         <br></br>
-      <BlogImage />
-      <div className="hero-body">
-      <div className="container"
-             
-          style={{
-            
-            textAlign: "center",
-            color: "#3b4b7f",
-            fontFamily: "Pacifico,cursive",
-            fontSize: "30px",
-            
-            fontWeight: "bold",
+      <section className="hero">
+        <MainNavBar />
 
-          }}
-        >
-         
-         <h4 style={stylefonts}> This is my blog.</h4>
-          <h4 style={stylefonts}> I have a great passion for programming.</h4>
-          <h4 style={stylefonts}>Gardening,photography and music are my hobbies.</h4>
-      
-      </div>
-      </div>
+        <BlogImage />
+        <div className="hero-body">
+          <div className="container"
+
+            style={{
+
+              textAlign: "center",
+              color: "#3b4b7f",
+              fontFamily: "Pacifico,cursive",
+              fontSize: "30px",
+
+              fontWeight: "bold",
+
+            }}
+          >
+
+            <h4 style={stylefonts}> This is my blog.</h4>
+            <h4 style={stylefonts}> I have a great passion for programming.</h4>
+            <h4 style={stylefonts}>Gardening,photography and music are my hobbies.</h4>
+
+          </div>
+        </div>
       </section>
       {/* <button className="button" onClick={handleClick}>
         Click to display modal.
       </button> */}
-      <ReactModal isOpen={modal}>
-        <form onSubmit={handleForm}>
-          <div className="container">
-            <div className="field">
-              <label className="label">Title</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Title"
-                  onChange={titleHandler}
-                />
-              </div>
-            </div>
-
-            <div className="field">
-              <label className="label">Body</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Body"
-                  onChange={bodyHandler}
-                />
-              </div>
-            </div>
-            <div className="field is-grouped">
-              <div className="control">
-                <button className="button is-primary">Submit</button>
-              </div>
-
-              <div className="control">
-                <button className="button is-light " onClick={handleClick}>
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </ReactModal>
+      {/* <Modal text = {addPost}/> */}
+      <Modal mutation={ADD_POST} />
 
       <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
@@ -141,43 +89,11 @@ const PostPage = () => {
               {Array.from(
                 data.posts.map(el => (
                   //container div
-                  <div
-                    className="container"
-                    style={{
-                      backgroundColor: "#fafafa",
-                      //backgroundColor: "#F4DBD8",
-                      fontFamily: "proxima-nova",
-                      maxwidth: 1000,
-                      fontWeight: 400,
-                      fontStyle: "normal",
-                      fontSize: "15px",
-                      letterSpacing: ".02em",
-                      lineHeight: "2em",
-                      textTransform: "none",
-                      color: "#757575",
-                       //color :"#775144"
-                       
-                    }}
-                  >
-                    <section >
-                      <div >
-                        <div className="container has-text-centered">
-                          <h1 className=" title " style={{ color: "#3b4b7f" }}>
-                            {el.title}
-                          </h1>
-
-                          <h2 className="title" style={{ color: "#3b4b7f" }}>
-                            {el.date}
-                          </h2>
-                        </div>
-                      </div>
-                    </section>
-
-                    <div style={{ marginLeft: "150px", marginRight: "150px" }}>
-                      {el.body}
-                    </div>
-                  </div>
+                  <Format bodyStyle="line-clamp" title ={el.title} date={el.date} imageUrl={el.imageUrl} body={el.body} 
+                  />
+                  
                 ))
+                
               ).reverse()}
             </div>
           )
