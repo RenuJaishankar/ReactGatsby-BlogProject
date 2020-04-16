@@ -26,8 +26,8 @@ export const Format = props => {
             {/* code for opening the post as a modal, the title will appear
              clickable because of the title css class  */}
 
-             <div className="card style_prevu_kit">
-                <header class="card-header-title"> 
+             <div className="card inner">
+                <header class="card-header-title "> 
                         <div className="columns">
                          <div className = "column" >
                         <p onClick={handleClick} >{props.title}</p>
@@ -37,7 +37,7 @@ export const Format = props => {
                         </div>
                         </div>
                 </header> 
-                <div className="card-image" >
+                <div className="card-image " >
                     <figure> 
                    
                         <img className="imgsmall"  src={props.imageUrl} alt="Placeholder image" />
@@ -59,7 +59,7 @@ export const Format = props => {
                         {/* <h4>{props.date}</h4>  */}
 
                 {/* <p style={{ whiteSpace: "pre-line", padding: "4px" }} className={props.bodyStyle}>{props.body}</p> */}
-            
+            <br></br>
         </div>
     )
 }

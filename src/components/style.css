@@ -57,35 +57,14 @@ overflow: hidden;
   color: "#757575";
 }
 
-.style_prevu_kit
-{
-    /* display:inline-block; */
-    /* border:0; */
-    /* width:196px;
-    height:210px; */
-    /* position: relative; */
-    
-    -webkit-transform: scale(1); 
-    /* -webkit-transform:translate(120px, 50%);
-    -ms-transition: all 50ms ease-in;
-    -ms-transform: scale(1); 
-    -moz-transition: all 50ms ease-in;
-    -moz-transform: scale(1);
-    transition: all 50ms ease-in;
-    transform: scale(1);    */
-
+.inner{
+  overflow: hidden;
 }
- .style_prevu_kit:hover
-{
-    /* box-shadow: 0px 0px 150px #000000;
-    z-index: 2; */
-    transform:translate3d(12px, 50%, 3em);
-    
-    /* -webkit-transform: scale(1.5);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);   
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(1.5); */
-} 
+
+.inner{
+  transition: all 1s ease;
+}
+
+.inner:hover {
+  transform: scale(1.05);
+}
