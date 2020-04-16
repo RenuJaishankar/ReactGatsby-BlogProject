@@ -1,11 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
 
+.card{
+  margin:auto;
+  height:600px;
+  width:600px;
+   justify-content: center;
+  
+}
 .line-clamp {
 display:-webkit-box;
 -webkit-line-clamp: 3;
 -webkit-box-orient: vertical;
 overflow: hidden;
 }
+
 
 /* html {
   white-space: pre-line;
@@ -19,8 +27,10 @@ overflow: hidden;
 .imgstyle {
   margin: auto;
   max-width: 100%;
+  display:center;
   height: auto;
   width: 800px;
+  
   /* px is very important or else it won't work in css in jsx you don't need */
 }
 
@@ -28,6 +38,7 @@ overflow: hidden;
   margin:auto;
   height:400px;
   width:400px;
+  display:flex;
 }
 
 
@@ -45,3 +56,36 @@ overflow: hidden;
   text-transform: "none";
   color: "#757575";
 }
+
+.style_prevu_kit
+{
+    /* display:inline-block; */
+    /* border:0; */
+    /* width:196px;
+    height:210px; */
+    /* position: relative; */
+    
+    -webkit-transform: scale(1); 
+    /* -webkit-transform:translate(120px, 50%);
+    -ms-transition: all 50ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 50ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 50ms ease-in;
+    transform: scale(1);    */
+
+}
+ .style_prevu_kit:hover
+{
+    /* box-shadow: 0px 0px 150px #000000;
+    z-index: 2; */
+    transform:translate3d(12px, 50%, 3em);
+    
+    /* -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.5); */
+} 

@@ -25,12 +25,41 @@ export const Format = props => {
             </ReactModal>
             {/* code for opening the post as a modal, the title will appear
              clickable because of the title css class  */}
-            <div className="container">
-                <h2 onClick={handleClick} className="title">{props.title}</h2>
-                <h4>{props.date}</h4>
-                <img className="imgsmall" src={props.imageUrl} />
-                <p style={{ whiteSpace: "pre-line", padding: "4px" }}className={props.bodyStyle}>{props.body}</p>
-            </div>
+
+             <div className="card style_prevu_kit">
+                <header class="card-header-title"> 
+                        <div className="columns">
+                         <div className = "column" >
+                        <p onClick={handleClick} >{props.title}</p>
+                        </div>  
+                        <div className = "column" >
+                        <p >{props.date}</p>
+                        </div>
+                        </div>
+                </header> 
+                <div className="card-image" >
+                    <figure> 
+                   
+                        <img className="imgsmall"  src={props.imageUrl} alt="Placeholder image" />
+                     </figure>
+                </div> 
+                
+                
+                 <div className="card-content">
+                <div className="content">
+                                    
+                     <p className={props.bodyStyle} style={{ whiteSpace: "pre-line", padding: "4px" }}>
+                            {props.body}
+                    </p>
+                </div>
+                </div> 
+
+              </div> 
+                 {/* <h2 onClick={handleClick} className="title">{props.title}</h2> */}
+                        {/* <h4>{props.date}</h4>  */}
+
+                {/* <p style={{ whiteSpace: "pre-line", padding: "4px" }} className={props.bodyStyle}>{props.body}</p> */}
+            
         </div>
     )
 }
