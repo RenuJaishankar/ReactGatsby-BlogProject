@@ -1,6 +1,6 @@
 import React from "react"
 
-const mainnavbar = () => (
+const MainNavBar = () => (
 
 <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
@@ -81,4 +81,4 @@ const mainnavbar = () => (
   </div>
 </nav>
 )
-export default mainnavbar
+export default MainNavBar

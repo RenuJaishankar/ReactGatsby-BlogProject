@@ -10,6 +10,7 @@ import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
 import "../components/style.css"
+import  {Format} from "../components/format.js"
 
 const APOLLO_QUERY = gql`
   {
@@ -21,6 +22,7 @@ const APOLLO_QUERY = gql`
     }
   }
 `
+// Creating a mutation here which links to backend mutation
 const ADD_FLOWER_POST = gql`
   mutation($imageUrl: String, $title: String, $body: String) {
     createFlowerPost(imageUrl: $imageUrl, title: $title, body: $body) {
@@ -31,12 +33,8 @@ const ADD_FLOWER_POST = gql`
   }
 `
 const FlowerPage = () => {
-  const [modal, setModal] = useState(false)
-    const handleClick = () => {
-    setModal(!modal)
-  }
-
-  
+  // const [modal, setModal] = useState(false)
+    
   return (
     <div>
       <section className = "hero">
@@ -59,29 +57,8 @@ const FlowerPage = () => {
               
               {Array.from(
                 data.flowerposts.map(el => (
-                  <div
-                    className="container display-1"
+                  <Format bodyStyle="line-clamp" title ={el.title} date={el.date} imageUrl={el.imageUrl} body={el.body} />
                    
-                  >
-                    <section className="hero">
-                      <div className="hero-body">
-                        <div className="container">
-                          <img className="imgstyle"src={el.imageUrl} />
-                        </div>
-                        <div className="container has-text-centered">
-                          <h1 className=" title " style={{ color: "#3b4b7f" }}>
-                            {el.date}{" "}
-                          </h1>
-                          <h2 className="title" style={{ color: "#3b4b7f" }}>
-                            {el.title}{" "}
-                          </h2>
-                        </div>
-                      </div>
-                    </section>
-                    <div style={{ marginLeft: "150px", marginRight: "150px" }}>
-                      {el.body}{" "}
-                    </div>
-                  </div>
                 ))
               ).reverse()}
             </div>

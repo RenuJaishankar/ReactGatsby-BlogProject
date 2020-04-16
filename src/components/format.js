@@ -21,15 +21,15 @@ export const Format = props => {
                 {/* <h4>{props.imageUrl}</h4> */}
                 <img className="imgstyle" src={props.imageUrl} />
                 <h4>{props.date}</h4>
-                <p>{props.body}</p>
+                <p style={{ whiteSpace: "pre-line", padding: "4px" }}>{props.body}</p>
             </ReactModal>
             {/* code for opening the post as a modal, the title will appear
              clickable because of the title css class  */}
-            <div className="container" style={{ whiteSpace: "pre-line", padding: "4px" }}>
+            <div className="container">
                 <h2 onClick={handleClick} className="title">{props.title}</h2>
                 <h4>{props.date}</h4>
                 <img className="imgsmall" src={props.imageUrl} />
-                <p className={props.bodyStyle}>{props.body}</p>
+                <p style={{ whiteSpace: "pre-line", padding: "4px" }}className={props.bodyStyle}>{props.body}</p>
             </div>
         </div>
     )
