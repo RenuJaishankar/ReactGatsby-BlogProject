@@ -48,6 +48,7 @@ const FlowerPage = () => {
       {/* <Modal text= {"Hello this is message"}/> */}
       {/* <Modal mutation = {ADD_FLOWER_POST} text= {"Hello this is message"}/> */}
       <Modal mutation = {ADD_FLOWER_POST}/>
+      {/* <Postquery flowerquery={APOLLO_QUERY}/> */}
       <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>

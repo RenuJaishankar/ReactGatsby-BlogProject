@@ -12,6 +12,7 @@ import { Query } from "react-apollo"
 import gql from "graphql-tag"
 import "../components/style.css"
 import  {Format} from "../components/format.js"
+import Postquery from "../components/postquery"
 const APOLLO_QUERY = gql`
   {
     posts {
@@ -33,6 +34,16 @@ mutation($imageUrl:String, $title: String, $body: String) {
 }
 `
 
+const PAGED_QUERY = gql`
+query($pageNumber:Int,$pageSize:Int){
+  allposts(pageNumber:$pageNumber,pageSize:$pageSize){
+           imageUrl
+           title
+           date
+            body
+          }
+}
+`
 const PostPage = (props) => {
   const [modal, setModal] = useState(false)
 
@@ -78,27 +89,9 @@ const PostPage = (props) => {
       </button> */}
       {/* <Modal text = {addPost}/> */}
       <Modal mutation={ADD_POST} />
-
-      <Query query={APOLLO_QUERY}>
-        {({ data, loading, error }) => {
-          if (loading) return <span>Loading...</span>
-          if (error) return <p>{error.message}</p>
-          return (
-            //inner div
-            <div>
-              {Array.from(
-                data.posts.map(el => (
-                  //container div
-                  <Format bodyStyle="line-clamp" title ={el.title} date={el.date} imageUrl={el.imageUrl} body={el.body} 
-                  />
-                  
-                ))
-                
-              ).reverse()}
-            </div>
-          )
-        }}
-      </Query>
+      <Postquery />
+     
+       
     </div>
   )
 }
