@@ -24,6 +24,7 @@ import {PAGED_QUERY, SIMPLE_QUERY, TOTAL_QUERY} from "../components/allqueries"
 // `
 
 const Postquery = (props) => {
+  const sentQuery = props.sentQuery
   // state for pages
   const [page, setPage] = useState({ pageNumber: 0, pageSize: 5 })
   // event listener that will change the current page state, altering the query
@@ -62,7 +63,7 @@ const Postquery = (props) => {
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
           if (error) return <p>{error.message}</p>
-          if (props.sentQuery = PAGED_QUERY) 
+          if (props.sentQuery === PAGED_QUERY) 
           return (
             <div>
                {console.log(`you queried PAGED_QUERY`)}

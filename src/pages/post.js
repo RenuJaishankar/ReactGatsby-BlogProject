@@ -82,7 +82,7 @@ const PostPage = (props) => {
       </button> */}
       {/* <Modal text = {addPost}/> */}
       <Modal mutation={ADD_POST} />
-      <Postquery sentQuery="PAGED_QUERY"/>
+      <Postquery sentQuery={PAGED_QUERY}/>
      
        
     </div>
