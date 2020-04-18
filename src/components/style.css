@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
-
+html{
+  background-color:#F2E3BC;
+}
 .card{
   margin:auto;
   height:600px;
@@ -68,3 +70,15 @@ overflow: hidden;
 .inner:hover {
   transform: scale(1.05);
 }
+
+
+
+.pagination a {
+  
+  color: black;
+  text-align:center;
+  /* float: left; */
+  text-decoration: none;
+  display:inline;
+}
+
