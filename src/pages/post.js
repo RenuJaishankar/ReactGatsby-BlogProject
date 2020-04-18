@@ -13,16 +13,17 @@ import gql from "graphql-tag"
 import "../components/style.css"
 import  {Format} from "../components/format.js"
 import Postquery from "../components/postquery"
-const APOLLO_QUERY = gql`
-  {
-    posts {
-      imageUrl
-      date
-      title
-      body
-    }
-  }
-`
+import {PAGED_QUERY,APOLLO_QUERY} from "../components/allqueries"
+// const SIMPLE_QUERY = gql`
+//   {
+//     posts {
+//       imageUrl
+//       date
+//       title
+//       body
+//     }
+//   }
+// `
 const ADD_POST = gql`
 mutation($imageUrl:String, $title: String, $body: String) {
   createPost(imageUrl: $imageUrl,title: $title, body: $body) {
@@ -34,16 +35,8 @@ mutation($imageUrl:String, $title: String, $body: String) {
 }
 `
 
-const PAGED_QUERY = gql`
-query($pageNumber:Int,$pageSize:Int){
-  allposts(pageNumber:$pageNumber,pageSize:$pageSize){
-           imageUrl
-           title
-           date
-            body
-          }
-}
-`
+
+
 const PostPage = (props) => {
   const [modal, setModal] = useState(false)
 
@@ -89,7 +82,7 @@ const PostPage = (props) => {
       </button> */}
       {/* <Modal text = {addPost}/> */}
       <Modal mutation={ADD_POST} />
-      <Postquery />
+      <Postquery sentQuery={PAGED_QUERY}/>
      
        
     </div>
