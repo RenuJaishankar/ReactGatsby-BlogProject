@@ -13,7 +13,7 @@ import gql from "graphql-tag"
 import "../components/style.css"
 import  {Format} from "../components/format.js"
 import Postquery from "../components/postquery"
-import {PAGED_QUERY,APOLLO_QUERY} from "../components/allqueries"
+import {PAGED_QUERY,SIMPLE_QUERY} from "../components/allqueries"
 // const SIMPLE_QUERY = gql`
 //   {
 //     posts {
@@ -35,18 +35,15 @@ mutation($imageUrl:String, $title: String, $body: String) {
 }
 `
 
-
-
-const PostPage = (props) => {
-  const [modal, setModal] = useState(false)
-
+const PostPage = () => {
+   const [modal, setModal] = useState(false)
 
   let stylefonts = {
     fontFamily: "Pacifico , cursive"
   }
   const handleClick = () => {
 
-    setModal(!modal)
+     setModal(!modal)
     console.log('this works')
   }
   return (
@@ -82,9 +79,8 @@ const PostPage = (props) => {
       </button> */}
       {/* <Modal text = {addPost}/> */}
       <Modal mutation={ADD_POST} />
-      <Postquery sentQuery={PAGED_QUERY}/>
-     
-       
+      <Postquery sentQuery={PAGED_QUERY}/> 
+        {/* <Postquery/> */}
     </div>
   )
 }

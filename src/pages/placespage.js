@@ -10,7 +10,9 @@ import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
 import "../components/style.css"
 import gql from "graphql-tag"
+import Postquery from "../components/postquery"
 import  {Format} from "../components/format.js"
+// import {PAGED_PLACES_QUERY,SIMPLE_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
 
 
 const APOLLO_QUERY = gql`
@@ -35,11 +37,12 @@ const ADD_PLACE_POST = gql`
 const PlacesPage = () => {
  
 
-  return (
+return (
     <div>
       <MainNavBar />
         <Modal mutation = {ADD_PLACE_POST}/>
-      <Query query={APOLLO_QUERY}>
+        {/* <Postquery sentQuery={PAGED_PLACES_QUERY}/> */}
+        <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
           if (error) return <p>{error.message}</p>
@@ -57,6 +60,7 @@ const PlacesPage = () => {
           // this curly braces for data,loadin
         }}
       </Query>
+         {/* <Postquery/> */}
      </div>
   )
   // outer paranthesis for main return
