@@ -11,7 +11,7 @@ import { Query } from "react-apollo"
 import "../components/global.css"
 import gql from "graphql-tag"
 import Postquery from "../components/postquery"
-import  {Format} from "../components/format.js"
+import  {Format} from "../components/format"
  import {PAGED_PLACES_QUERY,SIMPLE_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
 
 
