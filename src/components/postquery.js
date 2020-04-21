@@ -1,9 +1,15 @@
 import React, { useState } from "react"
 import ReactModal from "react-modal"
 import { Query } from "react-apollo"
-import { Format } from "../components/Format"
+import { Format } from "../components/format"
 import gql from "graphql-tag"
-import {PAGED_QUERY, SIMPLE_QUERY, TOTAL_QUERY,PAGED_PLACES_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
+import {
+  PAGED_QUERY,
+  SIMPLE_QUERY,
+  TOTAL_QUERY,
+  PAGED_PLACES_QUERY,
+  TOTAL_PLACES_QUERY,
+} from "../components/allqueries"
 
 // const PAGED_QUERY = gql`
 // query($pageNumber:Int,$pageSize:Int){
@@ -23,8 +29,8 @@ import {PAGED_QUERY, SIMPLE_QUERY, TOTAL_QUERY,PAGED_PLACES_QUERY,TOTAL_PLACES_Q
 // }
 // `
 
-const Postquery = (props) => {
-   const sentQuery = props.sentQuery
+const Postquery = props => {
+  const sentQuery = props.sentQuery
   // state for pages
   const [page, setPage] = useState({ pageNumber: 0, pageSize: 5 })
   // event listener that will change the current page state, altering the query
@@ -51,51 +57,51 @@ const Postquery = (props) => {
   let navArr = []
 
   const navBuilder = x => {
-    for (let i = 0; i <= x - 1; i++)
-      navArr.push(i);
+    for (let i = 0; i <= x - 1; i++) navArr.push(i)
   }
-
 
   return (
     <div>
       {/* This query is for rendering the page */}
-      <Query query={props.sentQuery} variables={page} >
+      <Query query={props.sentQuery} variables={page}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
           if (error) return <p>{error.message}</p>
-           if (props.sentQuery === PAGED_QUERY) 
-          return (
-            <div>
-               {console.log(`you queried PAGED_QUERY`)}
-              {
-                data.allposts.map(el => (
-                  <Format bodyStyle="line-clamp"
+          if (props.sentQuery === PAGED_QUERY)
+            return (
+              <div>
+                {console.log(`you queried PAGED_QUERY`)}
+                {data.allposts.map(el => (
+                  <Format
+                    bodyStyle="line-clamp"
                     imageUrl={el.imageUrl}
                     title={el.title}
                     date={el.date}
                     body={el.body}
                   />
-                ))
-              }
-            </div>
-          )
+                ))}
+              </div>
+            )
 
-          if (props.sentQuery === PAGED_PLACES_QUERY) 
-          return (
-            <div>
-                {
-                data.allplaceposts.map(el => (
-                  <Format bodyStyle="line-clamp" title ={el.title} date={el.date} imageUrl={el.imageUrl} body={el.body} />   
-                   
-                ))
-               }
-            </div>
-          )
+          if (props.sentQuery === PAGED_PLACES_QUERY)
+            return (
+              <div>
+                {data.allplaceposts.map(el => (
+                  <Format
+                    bodyStyle="line-clamp"
+                    title={el.title}
+                    date={el.date}
+                    imageUrl={el.imageUrl}
+                    body={el.body}
+                  />
+                ))}
+              </div>
+            )
         }}
       </Query>
 
       {/* This query is for rendering the page numbers */}
-      <Query query={TOTAL_QUERY} variables={page} >
+      <Query query={TOTAL_QUERY} variables={page}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
           if (error) return <p>{error.message}</p>
@@ -108,16 +114,22 @@ const Postquery = (props) => {
                 {/* {navArr.map(el => ( */}
 
                 {/* {el}  */}
-                <nav className="pagination" role="navigation" aria-label="pagination">
-
-                  <a onClick={handlePrevious} className="pagination-previous" title="This is the first page" >Previous</a>
-                  <a onClick={handleNext} className="pagination-next">Next page</a>
+                <nav
+                  className="pagination" style={{display:"block"}}
+                  role="navigation"
+                  aria-label="pagination"
+                >
                   {navArr.map(el => (
-
-                    <ul className="pagination-list">
-
+                    <ul className="pagination-list" style={{display:"inline-block"}}>
                       <li>
-                        <a onClick={handleClick} className="pagination-link" aria-label="Page 1" aria-current="page">{el}</a>
+                        <a
+                          onClick={handleClick}
+                          className="pagination-link"
+                          aria-label="Page 1"
+                          aria-current="page"
+                        >
+                          {el}
+                        </a>
                       </li>
 
                       {/* <li>
@@ -126,23 +138,28 @@ const Postquery = (props) => {
                         <li>
                           <a className="pagination-link" aria-label="Goto page 3">3</a>
                         </li> */}
-
                     </ul>
                   ))}
+
+                  <a
+                    onClick={handlePrevious}
+                    className="pagination-previous"
+                    title="This is the first page"
+                  >
+                    Previous
+                  </a>
+                  <a onClick={handleNext} className="pagination-next">
+                    Next page
+                  </a>
                 </nav>
-
-
 
                 {/* ))} */}
               </ul>
             </div>
-
           )
         }}
       </Query>
-      
     </div>
-
   )
 }
 
