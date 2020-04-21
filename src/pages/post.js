@@ -13,7 +13,7 @@ import gql from "graphql-tag"
 import "../components/global.css"
 import  {Format} from "../components/format"
 import Postquery from "../components/postquery"
-import {PAGED_QUERY,SIMPLE_QUERY} from "../components/allqueries"
+import {PAGED_QUERY,SIMPLE_QUERY,TOTAL_QUERY} from "../components/allqueries"
 // const SIMPLE_QUERY = gql`
 //   {
 //     posts {
@@ -79,7 +79,7 @@ const PostPage = () => {
       </button> */}
       {/* <Modal text = {addPost}/> */}
       <Modal mutation={ADD_POST} />
-      <Postquery sentQuery={PAGED_QUERY}/> 
+      <Postquery sentQuery={PAGED_QUERY} senttotalQuery={TOTAL_QUERY}/> 
         {/* <Postquery/> */}
     </div>
   )
