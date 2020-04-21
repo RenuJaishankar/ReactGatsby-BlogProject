@@ -9,7 +9,7 @@ import Modal from "../components/modal"
 import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
-import "../components/style.css"
+import "../components/global.css"
 import  {Format} from "../components/format.js"
 
 const APOLLO_QUERY = gql`
