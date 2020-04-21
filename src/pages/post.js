@@ -11,7 +11,7 @@ import Modal from "../components/modal"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
 import "../components/global.css"
-import  {Format} from "../components/format.js"
+import  {Format} from "../components/format"
 import Postquery from "../components/postquery"
 import {PAGED_QUERY,SIMPLE_QUERY} from "../components/allqueries"
 // const SIMPLE_QUERY = gql`

@@ -25,11 +25,9 @@ overflow: hidden;
   color:blue;
   cursor: pointer;
 }
-
-.card-header-title .columns {
+  .card-header-title .columns {
   /* display:flex; */
   margin:auto;
-  
 }
 
 /* card adjustments */

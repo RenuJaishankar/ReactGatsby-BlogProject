@@ -10,7 +10,7 @@ import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
 import "../components/global.css"
-import  {Format} from "../components/format.js"
+import  {Format} from "../components/format"
 
 const APOLLO_QUERY = gql`
   {
