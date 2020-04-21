@@ -5,7 +5,7 @@ import ReactModal from "react-modal"
 import { useMutation } from "@apollo/react-hooks"
 import "bulma/css/bulma.css"
 import BlogImage from "../images/blogimage"
-import Layout from "../components/layout"
+//import Layout from "../components/layout"
 import MainNavBar from "../components/mainnavbar"
 import Modal from "../components/modal"
 import { Query } from "react-apollo"
@@ -47,7 +47,7 @@ const PostPage = () => {
     console.log('this works')
   }
   return (
-    <div>
+    <div className="bcolor">
       <section className="hero">
         <MainNavBar />
 

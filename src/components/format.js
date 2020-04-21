@@ -26,10 +26,10 @@ export const Format = props => {
             {/* code for opening the post as a modal, the title will appear
              clickable because of the title css class  */}
 
-             <div className="card inner" >
+             <div className="card inner cardstyle" >
                 <header class="card-header-title "> 
                         <div className="columns">
-                         <div className = "column" >
+                         <div className = "title" >
                         <p onClick={handleClick} >{props.title}</p>
                         </div>  
                         <div className = "column" >
@@ -37,7 +37,7 @@ export const Format = props => {
                         </div>
                         </div>
                 </header> 
-                <div className="card-image " >
+                <div className="card-image" >
                     <figure> 
                    
                         <img className="imgsmall"  src={props.imageUrl} alt="Placeholder image" />

@@ -3,7 +3,7 @@ import ReactModal from "react-modal"
 import { Query } from "react-apollo"
 import { Format } from "../components/Format"
 import gql from "graphql-tag"
-import {PAGED_QUERY, SIMPLE_QUERY, TOTAL_QUERY} from "../components/allqueries"
+import {PAGED_QUERY, SIMPLE_QUERY, TOTAL_QUERY,PAGED_PLACES_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
 
 // const PAGED_QUERY = gql`
 // query($pageNumber:Int,$pageSize:Int){
@@ -77,6 +77,18 @@ const Postquery = (props) => {
                   />
                 ))
               }
+            </div>
+          )
+
+          if (props.sentQuery === PAGED_PLACES_QUERY) 
+          return (
+            <div>
+                {
+                data.allplaceposts.map(el => (
+                  <Format bodyStyle="line-clamp" title ={el.title} date={el.date} imageUrl={el.imageUrl} body={el.body} />   
+                   
+                ))
+               }
             </div>
           )
         }}

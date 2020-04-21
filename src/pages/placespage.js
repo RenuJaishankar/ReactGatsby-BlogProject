@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import ReactModal from "react-modal"
 import { useMutation } from "@apollo/react-hooks"
 import MainNavBar from "../components/mainnavbar"
-import Layout from "../components/layout"
+//import Layout from "../components/layout"
 import Modal from "../components/modal"
 import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
@@ -12,7 +12,7 @@ import "../components/style.css"
 import gql from "graphql-tag"
 import Postquery from "../components/postquery"
 import  {Format} from "../components/format.js"
-// import {PAGED_PLACES_QUERY,SIMPLE_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
+ import {PAGED_PLACES_QUERY,SIMPLE_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
 
 
 const APOLLO_QUERY = gql`
@@ -41,13 +41,13 @@ return (
     <div>
       <MainNavBar />
         <Modal mutation = {ADD_PLACE_POST}/>
-        {/* <Postquery sentQuery={PAGED_PLACES_QUERY}/> */}
-        <Query query={APOLLO_QUERY}>
+         <Postquery sentQuery={PAGED_PLACES_QUERY}/>
+        {/* <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
-          if (error) return <p>{error.message}</p>
-          return (
-            <div>
+          if (error) return <p>{error.message}</p> */}
+          {/* return ( */}
+            {/* <div>
                 {Array.from(
                 data.placeposts.map(el => (
                   <Format bodyStyle="line-clamp" title ={el.title} date={el.date} imageUrl={el.imageUrl} body={el.body} />   
@@ -55,9 +55,9 @@ return (
                 ))
               ).reverse()}
             </div>
-          )
-          //    this for return in query
-          // this curly braces for data,loadin
+          ) */}
+             {/* this for return in query
+           this curly braces for data,loadin
         }}
       </Query>
          {/* <Postquery/> */}
