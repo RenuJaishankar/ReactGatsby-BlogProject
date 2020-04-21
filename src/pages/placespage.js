@@ -12,7 +12,7 @@ import "../components/global.css"
 import gql from "graphql-tag"
 import Postquery from "../components/postquery"
 import  {Format} from "../components/format"
- import {PAGED_PLACES_QUERY,SIMPLE_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
+import {PAGED_PLACES_QUERY,SIMPLE_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
 
 
 const APOLLO_QUERY = gql`
@@ -41,7 +41,7 @@ return (
     <div>
       <MainNavBar />
         <Modal mutation = {ADD_PLACE_POST}/>
-         <Postquery sentQuery={PAGED_PLACES_QUERY}/>
+         <Postquery sentQuery={PAGED_PLACES_QUERY} senttotalQuery={TOTAL_PLACES_QUERY}/>
         {/* <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
