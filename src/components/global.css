@@ -27,6 +27,7 @@ overflow: hidden;
 }
 
 .title{
+  text-align:center;
   display:flex;
   
 }
