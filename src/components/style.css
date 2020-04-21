@@ -25,6 +25,11 @@ overflow: hidden;
   color:blue;
   cursor: pointer;
 }
+
+.title{
+  display:flex;
+  
+}
 /* This is the styling for the images in various pages */
 .imgstyle {
   margin: auto;
@@ -59,17 +64,18 @@ overflow: hidden;
   color: "#757575";
 }
 
-.inner{
+.inner:hover{
   overflow: hidden;
+ 
 }
 
-.inner{
+ .inner{
   transition: all 1s ease;
 }
 
 .inner:hover {
   transform: scale(1.05);
-}
+} 
 
 
 

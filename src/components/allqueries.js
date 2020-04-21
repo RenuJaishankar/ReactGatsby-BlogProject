@@ -43,19 +43,19 @@ query($pageNumber:Int,$pageSize:Int){
 
 }
 `
-// export const PAGED_PLACES_QUERY = gql`
-// query($pageNumber:Int,$pageSize:Int){
-//        allplaceposts(pageNumber:$pageNumber,pageSize:$pageSize){
-//            imageUrl
-//            title
-//            date
-//             body
-//           }
-// }
-//  `
-// export const TOTAL_PLACES_QUERY = gql`
-// query($pageNumber:Int,$pageSize:Int){
-//    getTotalPlacesPages(pageNumber:$pageNumber,pageSize:$pageSize)
+export const PAGED_PLACES_QUERY = gql`
+query($pageNumber:Int,$pageSize:Int){
+       allplaceposts(pageNumber:$pageNumber,pageSize:$pageSize){
+           imageUrl
+           title
+           date
+            body
+          }
+}
+ `
+export const TOTAL_PLACES_QUERY = gql`
+query($pageNumber:Int,$pageSize:Int){
+   getTotalPlacesPages(pageNumber:$pageNumber,pageSize:$pageSize)
 
-// }
-// `
+}
+`

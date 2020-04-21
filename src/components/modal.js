@@ -40,7 +40,7 @@ const Modal = (props) => {
     return (
         <div>
 
-             <button className="button is-medium" style={{ margin: "auto", width: "400px", backgroundColor: "#CF426C", color: "white" }} onClick={handleClick}>
+             <button className="button is-medium" style={{ margin: "auto", display:"flex",width: "400px", backgroundColor: "#CF426C", color: "white" }} onClick={handleClick}>
                 CLICK TO ENTER NEW POST
              </button>
            
@@ -61,7 +61,7 @@ const Modal = (props) => {
                             </div>
                         </div>
                         <div className="field">
-                            <label className="label">Title</label>
+                            <label className="Title">Title</label>
                             <div className="control">
                                 <input
                                     className="input"
