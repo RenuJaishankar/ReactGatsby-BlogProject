@@ -115,16 +115,24 @@ const Postquery = props => {
 
                 {/* {el}  */}
                 <nav
-                  className="pagination" style={{display:"block"}}
+                  className="pagination"
                   role="navigation"
                   aria-label="pagination"
                 >
+                  <a
+                    onClick={handlePrevious}
+                    className="pagination-previous"
+                    title="This is the first page"
+                  >
+                    Previous
+                  </a>
                   {navArr.map(el => (
-                    <ul className="pagination-list" style={{display:"inline-block"}}>
+                    <ul className="pagination-list" >
                       <li>
                         <a
                           onClick={handleClick}
                           className="pagination-link"
+                          style={{ borderColor:"black"}}
                           aria-label="Page 1"
                           aria-current="page"
                         >
@@ -141,13 +149,7 @@ const Postquery = props => {
                     </ul>
                   ))}
 
-                  <a
-                    onClick={handlePrevious}
-                    className="pagination-previous"
-                    title="This is the first page"
-                  >
-                    Previous
-                  </a>
+                  
                   <a onClick={handleNext} className="pagination-next">
                     Next page
                   </a>
