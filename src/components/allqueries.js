@@ -55,7 +55,7 @@ query($pageNumber:Int,$pageSize:Int){
  `
 export const TOTAL_PLACES_QUERY = gql`
 query($pageNumber:Int,$pageSize:Int){
-   getTotalPlacesPages(pageNumber:$pageNumber,pageSize:$pageSize)
+   getPlacesTotalPages(pageNumber:$pageNumber,pageSize:$pageSize)
 
 }
 `
