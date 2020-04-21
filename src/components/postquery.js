@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import ReactModal from "react-modal"
 import { Query } from "react-apollo"
-import { Format } from "../components/Format"
+import { Format } from "../components/format"
 import gql from "graphql-tag"
 import {PAGED_QUERY, SIMPLE_QUERY, TOTAL_QUERY,PAGED_PLACES_QUERY,TOTAL_PLACES_QUERY} from "../components/allqueries"
 
