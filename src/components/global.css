@@ -25,12 +25,19 @@ overflow: hidden;
   color:blue;
   cursor: pointer;
 }
-
-.title{
-  text-align:center;
-  display:flex;
-  
+  .card-header-title .columns {
+  /* display:flex; */
+  margin:auto;
 }
+
+/* card adjustments */
+
+.cardstyle{
+  height:fit-content;
+
+}
+
+
 /* This is the styling for the images in various pages */
 .imgstyle {
   margin: auto;
@@ -90,3 +97,17 @@ overflow: hidden;
   display:inline;
 }
 
+/* pagination code */
+
+.pagination-next, .pagination-previous {
+  border-color: black;
+}
+
+ .pagination-list{
+   display:inline-block;
+ }
+
+ .pagination{
+  display:block;
+  margin:2rem;
+ }
