@@ -1,7 +1,7 @@
 //This is basically a modal where we format the bigger paragraphs
 import React, { useState } from "react"
 import ReactModal from "react-modal"
-import "../components/style.css"
+import "../components/global.css"
 
 export const Format = props => {
     const [modal, setModal] = useState(false)
