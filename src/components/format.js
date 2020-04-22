@@ -28,11 +28,11 @@ export const Format = props => {
 
              <div className="card inner cardstyle" >
                 <header class="card-header-title "> 
-                        <div className="columns">
+                        <div className="columns"> 
                          <div className = "title" >
                         <p onClick={handleClick} >{props.title}</p>
-                        </div>  
-                        <div className = "column" >
+                         </div>   
+                         <div className = "column" > 
                         <p >{props.date}</p>
                         </div>
                         </div>
