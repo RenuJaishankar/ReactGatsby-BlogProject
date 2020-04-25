@@ -9,6 +9,9 @@ import {
   TOTAL_QUERY,
   PAGED_PLACES_QUERY,
   TOTAL_PLACES_QUERY,
+  PAGED_FLOWERS_QUERY,
+  TOTAL_FLOWERS_QUERY
+  
 } from "../components/allqueries"
 
 // const PAGED_QUERY = gql`
@@ -89,6 +92,20 @@ const Postquery = props => {
             return (
               <div>
                 {data.allplaceposts.map(el => (
+                  <Format
+                    bodyStyle="line-clamp"
+                    title={el.title}
+                    date={el.date}
+                    imageUrl={el.imageUrl}
+                    body={el.body}
+                  />
+                ))}
+              </div>
+            )
+            if (props.sentQuery === PAGED_FLOWERS_QUERY)
+            return (
+              <div>
+                {data.allflowerposts.map(el => (
                   <Format
                     bodyStyle="line-clamp"
                     title={el.title}
@@ -201,6 +218,43 @@ const Postquery = props => {
             </div>
 
           )}
+          if (props.senttotalQuery === TOTAL_FLOWERS_QUERY) {
+            return (
+              <div>
+                {navBuilder(data.getFlowersTotalPages)}
+                {console.log(navArr)}
+  
+                <ul>
+                  {/* {navArr.map(el => ( */}
+  
+                  {/* {el}  */}
+                  <nav className="pagination" role="navigation" aria-label="pagination">
+  
+                    <a onClick={handlePrevious} className="pagination-previous" title="This is the first page" >Previous</a>
+                    <a onClick={handleNext} className="pagination-next">Next page</a>
+                    {navArr.map(el => (
+  
+                      <ul className="pagination-list">
+  
+                        <li>
+                          <a onClick={handleClick} className="pagination-link" aria-label="Page 1" aria-current="page">{el}</a>
+                        </li>
+  
+                        {/* <li>
+                            <a className="pagination-link" aria-label="Goto page 2">2</a>
+                          </li>
+                          <li>
+                            <a className="pagination-link" aria-label="Goto page 3">3</a>
+                          </li> */}
+  
+                      </ul>
+                    ))}
+                  </nav>
+  
+                </ul>
+              </div>
+  
+            )}
  
         }}
       </Query>

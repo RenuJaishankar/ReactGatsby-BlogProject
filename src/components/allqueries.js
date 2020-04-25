@@ -59,3 +59,19 @@ query($pageNumber:Int,$pageSize:Int){
 
 }
 `
+export const PAGED_FLOWERS_QUERY = gql`
+query($pageNumber:Int,$pageSize:Int){
+       allflowerposts(pageNumber:$pageNumber,pageSize:$pageSize){
+           imageUrl
+           title
+           date
+            body
+          }
+}
+ `
+export const TOTAL_FLOWERS_QUERY = gql`
+query($pageNumber:Int,$pageSize:Int){
+   getFlowersTotalPages(pageNumber:$pageNumber,pageSize:$pageSize)
+
+}
+`
