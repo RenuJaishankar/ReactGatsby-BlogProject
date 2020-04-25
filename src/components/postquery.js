@@ -9,6 +9,9 @@ import {
   TOTAL_QUERY,
   PAGED_PLACES_QUERY,
   TOTAL_PLACES_QUERY,
+  PAGED_FLOWERS_QUERY,
+  TOTAL_FLOWERS_QUERY
+  
 } from "../components/allqueries"
 
 // const PAGED_QUERY = gql`

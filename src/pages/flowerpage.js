@@ -9,8 +9,10 @@ import Modal from "../components/modal"
 import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
+import Postquery from "../components/postquery"
 import "../components/global.css"
 import  {Format} from "../components/format"
+import {PAGED_FLOWERS_QUERY,SIMPLE_QUERY,TOTAL_FLOWERS_QUERY} from "../components/allqueries"
 
 const APOLLO_QUERY = gql`
   {
@@ -37,7 +39,7 @@ const FlowerPage = () => {
     
   return (
     <div>
-      <section className = "hero">
+      {/* <section className = "hero"> */}
        <MainNavBar />
       {/* This button is given for showing the form */}
       {/* <button className="button is-medium" style={{margin:"auto",width:"400px",backgroundColor:"#CF426C",color:"white",textAlign:"center"}} onClick={handleClick}>
@@ -48,8 +50,9 @@ const FlowerPage = () => {
       {/* <Modal text= {"Hello this is message"}/> */}
       {/* <Modal mutation = {ADD_FLOWER_POST} text= {"Hello this is message"}/> */}
       <Modal mutation = {ADD_FLOWER_POST}/>
+      <Postquery sentQuery={PAGED_FLOWERS_QUERY} senttotalQuery={TOTAL_FLOWERS_QUERY}/>
       {/* <Postquery flowerquery={APOLLO_QUERY}/> */}
-      <Query query={APOLLO_QUERY}>
+      {/* <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <span>Loading...</span>
           if (error) return <p>{error.message}</p>
@@ -68,7 +71,7 @@ const FlowerPage = () => {
           // this curly braces for data,loadin
         }}
       </Query>
-      </section>
+      </section> */}
     </div>
   )
   // outer paranthesis for main return
