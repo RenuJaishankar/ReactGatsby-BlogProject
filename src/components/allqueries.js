@@ -75,3 +75,19 @@ query($pageNumber:Int,$pageSize:Int){
 
 }
 `
+export const PAGED_FRUITS_QUERY = gql`
+query($pageNumber:Int,$pageSize:Int){
+       allfruitposts(pageNumber:$pageNumber,pageSize:$pageSize){
+           imageUrl
+           title
+           date
+            body
+          }
+}
+ `
+export const TOTAL_FRUITS_QUERY = gql`
+query($pageNumber:Int,$pageSize:Int){
+   getFruitsTotalPages(pageNumber:$pageNumber,pageSize:$pageSize)
+
+}
+`
