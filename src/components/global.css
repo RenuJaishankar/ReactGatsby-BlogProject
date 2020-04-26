@@ -25,13 +25,23 @@ overflow: hidden;
   color:blue;
   cursor: pointer;
 }
-  .card-header-title .columns {
+.card-header-title  .columns {
   /* display:flex; */
   margin:auto;
 }
 
 /* card adjustments */
+.columns{
+  margin:auto ;
+  display:flex;
+  flex-direction:column ;
 
+}
+
+.title{
+  margin:auto;
+  display:flex;
+}
 .cardstyle{
   height:fit-content;
 

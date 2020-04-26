@@ -29,6 +29,7 @@ export const Format = props => {
       {/* code for opening the post as a modal, the title will appear
              clickable because of the title css class  */}
 
+
       <div className="card inner cardstyle">
         <header class="card-header-title ">
           <div className="columns">
@@ -49,6 +50,10 @@ export const Format = props => {
             />
           </figure>
         </div>
+
+           
+                
+                
 
         <div className="card-content">
           <div className="content">
