@@ -10,7 +10,9 @@ import  {Format} from "../components/format"
 import "bulma/css/bulma.css"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
+import Postquery from "../components/postquery"
 import "../components/global.css"
+import {PAGED_FRUITS_QUERY,SIMPLE_QUERY,TOTAL_FRUITS_QUERY} from "../components/allqueries"
 
 const APOLLO_QUERY = gql`
   {
@@ -36,30 +38,11 @@ const FruitPage = () => {
  
   return (
     <div>
-      <section className="hero">
+     
       <MainNavBar />
       
       <Modal mutation = {ADD_FRUIT_POST}/>    
-      <Query query={APOLLO_QUERY}>
-        {({ data, loading, error }) => {
-            if (loading) return <span>Loading...</span>
-            if (error) return <p>{error.message}</p>
-          return (
-            <div>
-               
-               {Array.from (
-                  data.fruitposts.map(el => (
-                    <Format bodyStyle="line-clamp" title ={el.title} date={el.date} imageUrl={el.imageUrl} body={el.body} />
-                  ))
-                )
-                .reverse()}
-            </div>
-          )
-          //    this for return in query
-          // this curly braces for data,loadin
-        }}
-      </Query>
-      </section>
+      <Postquery sentQuery={PAGED_FRUITS_QUERY} senttotalQuery={TOTAL_FRUITS_QUERY}/>
     </div>
   )
   // outer paranthesis for main return
