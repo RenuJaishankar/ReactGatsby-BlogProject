@@ -6,10 +6,10 @@ const MainNavBar = () => (
     <div className="navbar-brand">
        <a className="navbar-item"  href="../post"> 
       </a> 
-           <img src="https://image.shutterstock.com/image-vector/vector-hand-painted-watercolor-blog-600w-339532466.jpg"width="50px" height="50px" />
+           <img src="https://image.shutterstock.com/image-vector/vector-hand-painted-watercolor-blog-600w-339532466.jpg"width="100px" height="100px" />
       {/* img tags in react need to be self closing with /> at the end! */}
                   
-      <div style={{ height: 30,margin:"auto"}}>
+      <div style={{ height: 50,margin:"auto"}}>
       <a className="navbar-item" style={{fontSize:30,fontWeight:"bold",fontFamily:"Pacifico,cursive",color:"#AB274F"}}>
        
         Super Cool My Blog
