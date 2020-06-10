@@ -4,23 +4,23 @@ const MainNavBar = () => (
 
 <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-      <a className="navbar-item"  href="../post"> 
-      </a>
-           <img src="https://image.shutterstock.com/image-vector/vector-hand-painted-watercolor-blog-600w-339532466.jpg"width="30rem" height="30rem" />
+       <a className="navbar-item"  href="../post"> 
+      </a> 
+           <img src="https://image.shutterstock.com/image-vector/vector-hand-painted-watercolor-blog-600w-339532466.jpg"width="50px" height="50px" />
       {/* img tags in react need to be self closing with /> at the end! */}
                   
-      <div style={{ height: 50,margin:"auto"}}>
+      <div style={{ height: 30,margin:"auto"}}>
       <a className="navbar-item" style={{fontSize:30,fontWeight:"bold",fontFamily:"Pacifico,cursive",color:"#AB274F"}}>
        
         Super Cool My Blog
                </a>
        </div>         
 
-      <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+      {/* <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
-      </a>
+      </a> */}
 
 
     </div>
