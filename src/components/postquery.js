@@ -51,7 +51,7 @@ const Postquery = props => {
   }
 
   const handlePrevious = event => {
-    console.log(page.pageNumber)
+    console.log("pagenumber ",page.pageNumber)
     if (page.pageNumber > 0) {
       setPage({ pageNumber: page.pageNumber - 1, pageSize: 5 })
     }
@@ -62,6 +62,7 @@ const Postquery = props => {
 
   const navBuilder = x => {
     for (let i = 0; i <= x - 1; i++) navArr.push(i)
+    console.log("Navarray",navArr)
   }
 
   return (
@@ -202,7 +203,7 @@ const Postquery = props => {
             <div>
               {navBuilder(data.getPlacesTotalPages)}
               {console.log(navArr)}
-
+                  
               <ul>
                 {/* {navArr.map(el => ( */}
 

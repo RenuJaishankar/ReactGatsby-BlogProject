@@ -67,16 +67,13 @@ export const Format = props => {
         </div>
         <div className="card-content">
            <div className="content">
-             <button onClick={handleClick}>
+             <button className = "button isHovered" onClick={handleClick}>
                  Continue reading >>>
               </button>
            </div>
         </div>
       </div>
-      {/* <h2 onClick={handleClick} className="title">{props.title}</h2> */}
-      {/* <h4>{props.date}</h4>  */}
-
-      {/* <p style={{ whiteSpace: "pre-line", padding: "4px" }} className={props.bodyStyle}>{props.body}</p> */}
+     
       <br></br>
     </div>
   )

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
 html{
-  background-color:#F2E3BC;
+  /* background-color:#F2E3BC; */
+  background-color:#FFCBA4;
 }
 .card{
   margin:auto;
@@ -120,4 +121,9 @@ overflow: hidden;
  .pagination{
   display:block;
   margin:2rem;
+ }
+
+ .button{
+   color:"#2A0800";
+   background-color:peachpuff;
  }
