@@ -16,11 +16,11 @@ const MainNavBar = () => (
                </a>
        </div>         
 
-      {/* <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+       <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
-      </a> */}
+      </a> 
 
 
     </div>
